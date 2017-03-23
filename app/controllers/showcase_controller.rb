@@ -4,13 +4,9 @@ class ShowcaseController < ApplicationController
     @products = Product.all
   end
 
-  def show
-    @products = Product.find(param[:id])
-=======
-  end
 
   def show
->>>>>>> add_Controller_branch
+      @products = Product.find(params[:id])
   end
 
   def category
