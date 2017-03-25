@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Real Fake Perosnalities 
+    meta name="keywords"
+    meta name="author"
+    link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  
+
+  body
+    h1 Genuine People Personalities
+    ul
+      li =link_to "Home", root_path 
+      / li =link_to "about us" ,about_path 
+            
+    == yield
