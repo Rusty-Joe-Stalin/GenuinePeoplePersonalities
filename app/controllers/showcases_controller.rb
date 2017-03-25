@@ -4,7 +4,7 @@ class ShowcasesController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def category
