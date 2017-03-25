@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'showcase/index', to:'showcase#index', as:'/'
+  get 'showcases/index', to:'showcases#index', as:'/'
 
-  get 'showcase/show', to:'showcase#show'
+  get 'showcases/show', to:'showcases#show'
 
-  get 'showcase/category',to:'showcase#category'
+  get 'showcases/category',to:'showcases#category'
 
 
 
@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'showcase#index'
+  root 'showcases#index'
 end
