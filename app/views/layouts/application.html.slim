@@ -9,6 +9,10 @@ html
   
 
   body
+  /   form ("/search", method:"get" do )
+  /   input(:q,"Search for:")
+  /    text_field_tag(:q)
+  /  = submit_tag("Seach")
     h1 Genuine People Personalities
     ul
       li =link_to "Home", root_path 

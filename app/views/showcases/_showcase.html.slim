@@ -1,5 +1,5 @@
 .showcase
-div id = "card"
+
    h4 = showcase.name
    image_tag showcase.image_path
    p
@@ -8,4 +8,3 @@ div id = "card"
    strong Price :
    = number_to_currency showcase.price
    p = link_to 'details',showcase_path(showcase)
-div

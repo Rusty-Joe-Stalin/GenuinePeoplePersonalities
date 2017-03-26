@@ -1,34 +1,33 @@
-body{
-  background-image: image("images/body-bg.jpg");
+html{
+  background-image:url("body-bg.jpg");
   h1{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
   ul{
-    margin-left: auto;
-    margin-right: auto; 
+    margin-left: 25%;
+    margin-right: 25%;
       li{
-      list-style-type: none;
+      list-style-type: lower-roman;
       display: inline-block;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
      }
     }
-}
-.showcase {
-  card{
-    background: white;
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    border: 1px solid grey;
-    box-shadow: 2px , 2px ,3px ;
-    margin: 2em;
-    padding:1em;
-    h3 {
-      color: blue;
-    }
-  }
+    .showcase {
+        display: inline-block;
+        position: relative;
+        border: 1px solid grey;
+        box-shadow: 2px , 2px ,3px ;
+        margin-left: 25px;
+        margin-right: 25px;
+        p{
+          padding-left: 10px;
+        }
+        h4 {
+          color: #ff33fe;
+        }
+      }
 }

@@ -74,7 +74,7 @@
  }
 
 
- body{background: url(../img/body-bg.jpg) repeat;}
+ body{background: url(ody-bg.jpg) repeat;}
  h1, h2, h3, h4, h5, h6{margin: 0;}
  h1{}
  h2{}
@@ -7118,3 +7118,18 @@
      display: none !important;
    }
  }
+ .showcase {
+     display: inline-block;
+     position: relative;
+     border: 1px solid grey;
+     box-shadow: 2px , 2px ,3px ;
+
+     margin: 25px ;
+
+     p{
+       padding-left: 10px;
+     }
+     h4 {
+       color: #ff33fe;
+     }
+   }
