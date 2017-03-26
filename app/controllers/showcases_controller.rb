@@ -3,6 +3,10 @@ class ShowcasesController < ApplicationController
     @products = Product.all
   end
 
+  def about_pages
+    @about = AboutPage.all.first
+  end
+
   def show
     @products = Product.find(params[:id])
   end
@@ -10,4 +14,6 @@ class ShowcasesController < ApplicationController
   def category
     @categories = Category.all
   end
+
+
 end
