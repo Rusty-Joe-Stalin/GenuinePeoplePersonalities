@@ -60,3 +60,4 @@ gem 'devise'
 gem 'slim', '~> 3.0', '>= 3.0.7'
 
 gem 'rubocop'
+gem 'paginated_collection', '~> 0.3.0'
