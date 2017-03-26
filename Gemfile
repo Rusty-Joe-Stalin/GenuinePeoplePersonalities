@@ -56,8 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 
 gem 'devise'
+gem 'paginated_collection', '~> 0.3.0'
 
 gem 'slim', '~> 3.0', '>= 3.0.7'
 
 gem 'rubocop'
-gem 'paginated_collection', '~> 0.3.0'

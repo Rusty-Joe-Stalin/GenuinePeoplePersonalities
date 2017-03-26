@@ -1,7 +1,9 @@
 .showcase
-
    h4 = showcase.name
-   image_tag = showcase.image_path
+   -if showcase.status == "sale"
+    =image_tag 'sale.png'
+  
+   = image_tag showcase.image_path
    p = showcase.description
   
    strong Price :

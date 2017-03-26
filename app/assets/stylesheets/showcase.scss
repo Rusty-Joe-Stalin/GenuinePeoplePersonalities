@@ -17,14 +17,17 @@ html{
      }
     }
     .showcase {
+        width: 400px;
+        height: 350px;
         display: inline-block;
         position: relative;
         border: 1px solid grey;
         box-shadow: 2px , 2px ,3px ;
-        margin-left: 25px;
-        margin-right: 25px;
+        margin: 25px;
+
         p{
           padding-left: 10px;
+          width: 400px;
         }
         h4 {
           color: #ff33fe;

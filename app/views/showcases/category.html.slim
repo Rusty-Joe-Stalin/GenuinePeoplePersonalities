@@ -1,6 +1,5 @@
 
 
- = @category do |cat|
-  
-    ul 
-      li = cat.name
+ - @categories.each do |cat|  
+    ul      
+      li = link_to cat.name , showcase_path(cat)
