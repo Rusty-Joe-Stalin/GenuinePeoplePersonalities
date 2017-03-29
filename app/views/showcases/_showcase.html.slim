@@ -3,9 +3,9 @@
    -if showcase.status == "sale"
     =image_tag 'sale.png'
   
-   = image_tag showcase.image_path
+   = image_tag showcase.image
    p = showcase.description
   
    strong Price :
    = number_to_currency showcase.price
-   p = link_to 'details',showcase_path(showcase)
+   p = link_to 'details',showcases_path(showcase)

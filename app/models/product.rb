@@ -3,4 +3,5 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   belongs_to :category
+  mount_uploader :image, ImagesUploader
 end

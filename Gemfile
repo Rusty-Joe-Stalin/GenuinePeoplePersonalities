@@ -49,15 +49,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'carrierwave', '~> 1.0'
+gem 'devise'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
-
-gem 'devise'
-gem 'paginated_collection', '~> 0.3.0'
-
-gem 'slim', '~> 3.0', '>= 3.0.7'
-
 gem 'rubocop'
+gem 'slim', '~> 3.0', '>= 3.0.7'

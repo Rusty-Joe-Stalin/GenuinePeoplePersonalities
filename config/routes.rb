@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources 'showcases', only:[:index,:show,:category,:about]
 
-  root 'showcases#index'
+  root to: 'showcases#index'
 end
