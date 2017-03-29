@@ -14,4 +14,8 @@ class ShowcasesController < ApplicationController
   def category
     @categories = Category.all
   end
+
+  def result
+      @result = Products.where(category_id: == params[:id])
+  end
 end

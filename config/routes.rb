@@ -7,10 +7,12 @@ Rails.application.routes.draw do
 
   get 'showcases/about_pages', to:'showcases#about_pages', as: 'about'
 
+  get 'showcases/results/:id', to:'showcases#results' , as: 'results'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources 'showcases', only:[:index,:show,:category,:about]
+  # resources 'showcases', only:[:index,:show,:category,:about]
 
   root to: 'showcases#index'
 end
