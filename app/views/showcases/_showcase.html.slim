@@ -1,4 +1,4 @@
-.showcase.card
+.showcase
   img.card-img-top alt=("showcase.name") src= showcase.image
   -if showcase.status == "sale"
     =image_tag 'sale.png'
@@ -9,3 +9,4 @@
      strong Price :
      = number_to_currency showcase.price
      p.btn.btn-primary = link_to 'details',show_path(showcase)
+     = submit_tag("Add to cart")

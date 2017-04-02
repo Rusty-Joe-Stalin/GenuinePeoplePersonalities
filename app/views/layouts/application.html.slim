@@ -9,11 +9,17 @@ html
 vagra
   body
     - @cat = Category.all    
-    = form_tag("/showcases/results/",method: "get") do
+    = form_tag("/showcases/results",method: "get") do
       = label_tag(:search,"Search for:")
-      = text_field_tag(:key_words)        
-      = select_tag(:search,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
+      = text_field_tag(:search)        
+      = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
       = submit_tag("Search")
+    = label_tag(:order,"Order by:")
+      input checked="" name="order" type="radio" value="name" /
+      | Name
+      input checked="" name="gender" type="radio" value="price" /
+      | Price
+      br/
           
     h1 Genuine People Personalities
      

@@ -1,2 +1,5 @@
 
-= render partial:'showcase', collection: @result 
+- if @result.empty?
+   p No results found
+- else    
+  = render partial:'showcase', collection: @result 
