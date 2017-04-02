@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  #gem 'listen', '~> 3.0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 
@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 gem 'rubocop'
 gem 'slim', '~> 3.0', '>= 3.0.7'
+gem 'bootstrap', '~> 4.0.0.alpha6'

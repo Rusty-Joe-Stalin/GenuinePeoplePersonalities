@@ -1,11 +1,11 @@
-.showcase
-   h4 = showcase.name
-   -if showcase.status == "sale"
+.showcase.card
+  img.card-img-top alt=("showcase.name") src= showcase.image
+  -if showcase.status == "sale"
     =image_tag 'sale.png'
-  
-   = image_tag showcase.image
-   p = showcase.description
-  
-   strong Price :
-   = number_to_currency showcase.price
-   p = link_to 'details',show_path(showcase)
+    
+  .card-block  
+     h4.card-title = showcase.name
+     p.card-text = showcase.description
+     strong Price :
+     = number_to_currency showcase.price
+     p.btn.btn-primary = link_to 'details',show_path(showcase)

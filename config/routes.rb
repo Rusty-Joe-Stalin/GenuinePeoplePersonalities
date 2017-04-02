@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'showcases/about_pages', to:'showcases#about_pages', as: 'about'
 
-  get 'showcases/results/:id', to:'showcases#results' , as: 'results'
+  get 'showcases/cat_results/:id', to:'showcases#results' , as: 'results'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

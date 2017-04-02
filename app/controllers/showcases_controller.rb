@@ -15,7 +15,16 @@ class ShowcasesController < ApplicationController
     @categories = Category.all
   end
 
-  def result
-      @result = Products.where(category_id: == params[:id])
+  def results
+  @search_params = params[:search]
+  @category_params = params[:category]
+  if @category_params.present?
+      @products = Product.where("name LIKE ? AND category_id LIKE ?", '%'+@search_params+'%',  @category_params)
+      @result = Category.find(@category_params)
+  else
+    @products = Product.where("name like ?", "%"+@search_params+"%")
   end
+  #  @result = Category.find(params[:id]).products
+
+end
 end
