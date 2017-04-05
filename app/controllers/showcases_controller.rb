@@ -41,13 +41,12 @@ class ShowcasesController < ApplicationController
 
    def remeber_remove
     session[:items].delete(params[:id].to_i)
+    # redirect_back(fallback: root_path)
     redirect_to :back
   end
 
   def cart
-
     @items_to_purchase = Product.find(session[:items])
-
   end
 
   private

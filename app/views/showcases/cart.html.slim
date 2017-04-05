@@ -2,5 +2,7 @@
 = render partial:'checkout', collection: @items_to_purchase  
 
 
-div
-= button_to 'Proceed to Checkout', checkout_path , method: :post
+-if @items_to_purchase.any?
+  = button_to 'Proceed to Checkout', checkout_path , method: :post
+- else 
+  p = "Cart is empty"
