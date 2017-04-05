@@ -4,7 +4,7 @@ html
     title Real Fake Perosnalities 
     meta charset="utf-8" /
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
-    / link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     / link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 vagra
   body
@@ -14,10 +14,15 @@ vagra
       = text_field_tag(:search)        
       = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
       = submit_tag("Search")
+      
+      = link_to 'Cart', cart_path
+      / = link_to image_tag('/images/cart.png'), url_for({:controller => 'showcases/cart', :action => 'get'})
+      / 
+  
     = label_tag(:order,"Order by:")
-      input checked="" name="order" type="radio" value="name" /
+      input  name="order" type="radio" value="name" /
       | Name
-      input checked="" name="gender" type="radio" value="price" /
+      input  name="gender" type="radio" value="price" /
       | Price
       br/
           
@@ -29,5 +34,6 @@ vagra
       li =link_to " About us " , about_path
       li
       li =link_to " Available personas " , category_path
-            
+
+  div     
     == yield

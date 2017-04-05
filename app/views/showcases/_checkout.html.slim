@@ -1,0 +1,10 @@
+.checkout
+  img.card-img-top alt=("checkout.name") src= checkout.image
+  -if checkout.status == "sale"
+    =image_tag 'sale.png'
+    
+  .card-block  
+     h4.card-title = checkout.name
+     strong Price :
+     = number_to_currency checkout.price
+     = button_to 'remove', remeber_remove_showcase_path(checkout) , method: :post

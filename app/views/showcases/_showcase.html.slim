@@ -8,5 +8,5 @@
      p.card-text = showcase.description
      strong Price :
      = number_to_currency showcase.price
-     p.btn.btn-primary = link_to 'details',show_path(showcase)
-     = submit_tag("Add to cart")
+     button.btn.btn-primary = link_to 'details',show_path(showcase)
+     = button_to 'Add to cart ' ,  remeber_cart_showcase_path(showcase),method: :post
