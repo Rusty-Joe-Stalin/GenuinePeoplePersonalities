@@ -57,3 +57,5 @@ gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resour
 gem 'rubocop'
 gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'kaminari'
+gem 'stripe'

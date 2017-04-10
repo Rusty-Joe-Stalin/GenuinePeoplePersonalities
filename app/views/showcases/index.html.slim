@@ -1,4 +1,7 @@
-
+=paginate @products 
 .card-deck-wrapper
   .card-deck
-     = render partial:'showcase', collection:  @products
+  
+    = render partial:'product_row', collection:  @products, order_item: order_item
+    
+  =debug session[:order_id]

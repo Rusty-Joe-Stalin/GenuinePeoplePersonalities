@@ -5,35 +5,31 @@ html
     meta charset="utf-8" /
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    / link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 vagra
   body
-    - @cat = Category.all    
-    = form_tag("/showcases/results",method: "get") do
-      = label_tag(:search,"Search for:")
-      = text_field_tag(:search)        
-      = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
-      = submit_tag("Search")
-      
-      = link_to 'Cart', cart_path
-      / = link_to image_tag('/images/cart.png'), url_for({:controller => 'showcases/cart', :action => 'get'})
-      / 
-  
-    = label_tag(:order,"Order by:")
-      input  name="order" type="radio" value="name" /
-      | Name
-      input  name="gender" type="radio" value="price" /
-      | Price
-      br/
-          
-    h1 Genuine People Personalities
-     
-    ul
-      li =link_to " Home ", root_path
-      li 
-      li =link_to " About us " , about_path
-      li
-      li =link_to " Available personas " , category_path
+      - @cat = Category.all    
+      = form_tag("/showcases/results",method: "get") do
+        = label_tag(:search,"Search for:")
+        = text_field_tag(:search)        
+        = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
+        = submit_tag("Search")
+        
+        h1.cart-text
+          = render 'layouts/cart_text'
+    
+      h1 Genuine People Personalities       
+      ul
+        li =link_to " Home ", root_path
+        li 
+        li =link_to " About us " , about_path
+      div.row.col-3
+        - if flash[:notice]
+          .alert.alert-success.alert-dismissible.fade.show[role="alert"] 
+            button.close[type="button" data-dismiss="alert" aria-label="Close"] 
+              span[aria-hidden="true"]
+                | ×
+            = flash[:notice]
 
-  div     
-    == yield
+      div     
+        == yield

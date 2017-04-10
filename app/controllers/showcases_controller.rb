@@ -1,9 +1,11 @@
 # require 'set'
 class ShowcasesController < ApplicationController
-  before_action :initliaze_session
+  # before_action :initliaze_session
 
   def index
-    @products = Product.all.order(name: :asc)
+    @products = Product.all.order(name: :asc).page(params[:page]).per(2)
+
+    @order_item = current_order.order_items.new
   end
 
   def about_pages
@@ -34,25 +36,30 @@ class ShowcasesController < ApplicationController
 
   end
 
-  def remeber_cart
-     session[:items] << params[:id].to_i
-     redirect_to :back
-   end
+  # def remeber_cart
+  #   session[:order_items] << params[:id].to_i
+  #    flash[:notice] = "Item added to cart"
+  #   #  @flash = flash[notice:]
+  #    redirect_to :back
+  #  end
+  #
+  #  def remeber_remove
+  #   session[:order_items].delete(params[:id].to_i)
+  #   # redirect_back(fallback: root_path)
+  #   redirect_to :back
+  # end
 
-   def remeber_remove
-    session[:items].delete(params[:id].to_i)
-    # redirect_back(fallback: root_path)
-    redirect_to :back
-  end
-
-  def cart
-    @items_to_purchase = Product.find(session[:items])
-  end
+  # def cart
+  #   # session[:items].each do
+  #   #   @qty = session[:item].to_i unless session[:item] != session[:item]
+  #   # end
+  #   @items_to_purchase = Product.find(session[:order_items])
+  # end
 
   private
 
   def initliaze_session
-      session[:items]||=[]
+      session[:order_items]||=[]
       # @items_to_purchase|| = nil
     end
     #

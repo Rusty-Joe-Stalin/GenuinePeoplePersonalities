@@ -2,11 +2,12 @@
   img.card-img-top alt=("showcase.name") src= showcase.image
   -if showcase.status == "sale"
     =image_tag 'sale.png'
-    
-  .card-block  
-     h4.card-title = showcase.name
-     p.card-text = showcase.description
-     strong Price :
-     = number_to_currency showcase.price
-     button.btn.btn-primary = link_to 'details',show_path(showcase)
-     = button_to 'Add to cart ' ,  remeber_cart_showcase_path(showcase),method: :post
+      
+  
+  div.card-block 
+    h4.card-title = showcase.name
+    p.card-text = showcase.description
+    strong Price :
+    = number_to_currency showcase.price
+    / button.btn = link_to 'details',showcase_path(showcase)
+    = link_to 'Back ' ,  root_path

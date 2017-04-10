@@ -1,0 +1,25 @@
+.product_row
+  .well
+    div.row
+      div.col-10.col-xl-10
+        .card-block
+          h4
+            = product_row.name
+            -if product_row.status == "sale"
+              =image_tag 'sale.png'
+              
+        div.col-10.col-xl-10
+          img.card-img-top alt=("product_row.name") src= product_row.image         
+          
+        = form_for @order_item , authenticity_token: true, remote: true do |f|
+          h4.text-right
+            | Unit Price: 
+            span[style="color: green"]
+              = number_to_currency product_row.price
+            button.btn = link_to 'Details',showcase_path(product_row)
+            
+            div.input-group
+            = f.number_field :quantity, value: 1, class: "form-control", min: 1
+            div.input-group-btn
+            = f.hidden_field :product_id, value: product_row.id
+            = f.submit "Add to Cart", class: "btn btn-primary"
