@@ -1,3 +1,6 @@
-div.shopping-cart = render 'cart/shopping_cart'
+.card-deck-wrapper
+  .card-deck
+    div.shopping-cart = render 'cart/shopping_cart'
 
-= debug @order_items
+- unless @order_items.size == 0
+    = button_to 'Proceed to checkout', checkout_path 

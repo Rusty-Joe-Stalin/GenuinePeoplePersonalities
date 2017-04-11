@@ -11,7 +11,7 @@
         div.col-10.col-xl-10
           img.card-img-top alt=("product_row.name") src= product_row.image         
           
-        = form_for @order_item , authenticity_token: true, remote: true do |f|
+        = form_for @order_item , remote: true do |f|
           h4.text-right
             | Unit Price: 
             span[style="color: green"]

@@ -38,8 +38,8 @@ class ShowcasesController < ApplicationController
 
   def checkout
     @purchases = Order.find(session[:order_id])
-    @purchases.status = 2
-    
+    @purchases.order_status_id = 2
+
   end
   # def remeber_cart
   #   session[:order_items] << params[:id].to_i
@@ -64,7 +64,7 @@ class ShowcasesController < ApplicationController
   private
 
   def initliaze_session
-      session[:order_items]||=[]
+      session[:order_id]=[]
       # @items_to_purchase|| = nil
     end
     #

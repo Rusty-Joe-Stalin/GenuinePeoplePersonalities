@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   # get 'showcases/cart', to: 'showcases#cart' , as: 'cart'
   # removed the id from results.
-  post 'showcases/checkout' =>'showcases#checkout', as: 'checkout'
+  get 'showcases/checkout', to:'showcases#checkout', as: 'checkout'
 
   # post 'cart/show' =>'cart#show'
 

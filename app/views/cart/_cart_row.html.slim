@@ -4,7 +4,7 @@
       h4
         = product.name
     .col-xs-4
-      = form_for order_item, authenticity_token: true, remote: true do |f|
+      = form_for order_item, remote: true do |f|
         h4.text-right
           | Unit Price: 
           span[style="color: green"]
@@ -16,10 +16,8 @@
           .col-xs-8.text-right
             .btn-group
               = f.submit "Update Quantity", class: "btn btn-primary"
-              = link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, authenticity_token: true,remote: true, class: "btn btn-danger" }
+              = link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, remote: :true, method: :delete, class: "btn btn-danger" }
         h4.text-right
           | Total Price: 
           span[style="color: green"]
             = number_to_currency order_item.total_price
-            
-            = button_to 'Proceed to checkout', checkout_path , method: :post

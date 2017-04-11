@@ -1,5 +1,5 @@
 
-= form_for @customer , authenticity_token: true, remote: true do |f|
+= form_for customer, authenticity_token: true, remote: true do |f|
   h4.text-right
     | Please enter your customer details
     span
@@ -10,9 +10,9 @@
     = f.email_field :email, class: "form-control", min: 1
     = f.text_field :postal_code, class: "form-control", min: 1
     - @prov = Province.all    
-    = f.label (:select,"Province")
+    = f.label(:select,"Select:")
     = f.text_field (:select)        
-    = f.select (:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
+    = f.select(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
     div.input-group-btn
     = f.hidden_field :product_id, value: product_row.id
-    = f.submit "Add to Cart", class: "btn btn-primary"
+    = f.submit "register", class: "btn btn-primary"

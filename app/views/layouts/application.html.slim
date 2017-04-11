@@ -6,7 +6,7 @@ html
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-vagra
+    = csrf_meta_tags
   body
       - @cat = Category.all    
       = form_tag("/showcases/results",method: "get") do
