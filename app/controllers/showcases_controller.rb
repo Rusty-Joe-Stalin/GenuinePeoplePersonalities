@@ -36,6 +36,11 @@ class ShowcasesController < ApplicationController
 
   end
 
+  def checkout
+    @purchases = Order.find(session[:order_id])
+    @purchases.status = 2
+    
+  end
   # def remeber_cart
   #   session[:order_items] << params[:id].to_i
   #    flash[:notice] = "Item added to cart"

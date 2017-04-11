@@ -11,7 +11,4 @@
     |  and add some items to your cart. 
 - else
   - @order_items.each do |order_i|
-    = render 'carts/cart_row', product: order_i.product, order_item: order_i, show_total: true
-
-
-  =debug @order_items.errors
+    = render 'cart/cart_row', product: order_i.product, order_item: order_i, show_total: true

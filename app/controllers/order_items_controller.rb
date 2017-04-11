@@ -4,7 +4,7 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
     @order.save
-    session[:order_id]||= @order.id
+    session[:order_id]= @order.id
     flash[:notice] = "Item added to cart"
   end
 
@@ -29,6 +29,6 @@ class OrderItemsController < ApplicationController
   #     session[:order_items]||=[]
   #   end
   def order_item_params
-    params.require(:order_item).permit(:quanity,:product_id)
+    params.require(:order_item).permit(:quantity,:product_id)
   end
 end
