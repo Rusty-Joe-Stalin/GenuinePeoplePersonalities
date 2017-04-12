@@ -3,7 +3,7 @@ class ShowcasesController < ApplicationController
   # before_action :initliaze_session
 
   def index
-    @products = Product.all.order(name: :asc).page(params[:page]).per(2)
+    @products = Product.all.order(name: :asc).page(params[:page]).per(4)
 
     @order_item = current_order.order_items.new
   end

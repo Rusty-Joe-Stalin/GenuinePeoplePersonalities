@@ -3,10 +3,10 @@
     div.row
       div.col-10.col-xl-10
         .card-block
-          h4
+          h4.col
             = product_row.name
-            -if product_row.status == "sale"
-              =image_tag 'sale.png'
+          -if product_row.status == "sale"
+            =image_tag 'sale.png'
               
         div.col-10.col-xl-10
           img.card-img-top alt=("product_row.name") src= product_row.image         

@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
 
   def subtotal
-    #  removed ': 0 ' from line cause of syntax errors
+
   order_items.collect{|oi| oi.valid? ? (oi.quantity.to_i * oi.unit_price.to_f) : 0}.sum
   end
 

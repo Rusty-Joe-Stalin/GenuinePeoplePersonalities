@@ -7,29 +7,32 @@ html
     link_to = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
-  body
-      - @cat = Category.all    
-      = form_tag("/showcases/results",method: "get") do
-        = label_tag(:search,"Search for:")
-        = text_field_tag(:search)        
-        = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
-        = submit_tag("Search")
-        
-        h1.cart-text
+  body[style="background-color: #f7f7f7;"]
+  div[style="background-color: #e3f2fd;"]
+    h1.col.push-md-3 Genuine People Personalities 
+  div.container-fluid
+    nav.navbar.navbar-light
+        h4.row.cart-text
           = render 'layouts/cart_text'
-    
-      h1 Genuine People Personalities       
-      ul
-        li =link_to " Home ", root_path
-        li 
-        li =link_to " About us " , about_path
-      div.row.col-3
-        - if flash[:notice]
-          .alert.alert-success.alert-dismissible.fade.show[role="alert"] 
-            button.close[type="button" data-dismiss="alert" aria-label="Close"] 
-              span[aria-hidden="true"]
-                | ×
-            = flash[:notice]
+          - @cat = Category.all
+        div.row.col.push-md-7   
+          = form_tag("/showcases/results",method: "get") do
+            = label_tag(:search,"Search for:")
+            = text_field_tag(:search)
+            = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
+            button.btn.btn-outline-success= submit_tag("Search")          
+    div.row.align-items-center          
+        ul.navbar-nav
+          li.nav-link =link_to " Home ", root_path 
+          li.nav-link =link_to " About us " , about_path
+  
+  div.row.col-10
+    - if flash[:notice]
+      .alert.alert-success.alert-dismissible.fade.show[role="alert"] 
+        button.close[type="button" data-dismiss="alert" aria-label="Close"] 
+          span[aria-hidden="true"]
+            | ×
+        = flash[:notice]
 
-      div     
-        == yield
+  div     
+    == yield
