@@ -1,18 +1,25 @@
 
-= form_for customer, authenticity_token: true, remote: true do |f|
-  h4.text-right
-    | Please enter your customer details
-    span
-  
-    div.input-group
-    = f.text_field :full_name, class: "form-control", min: 1
-    = f.text_field :shipping_address, class: "form-control", min: 1
-    = f.email_field :email, class: "form-control", min: 1
-    = f.text_field :postal_code, class: "form-control", min: 1
+    div.input-group  
+    = form_tag(email_field :email, class: "form-control", min: 1) do 
+    = label_tag(:email, "Email") 
     - @prov = Province.all    
-    = f.label(:select,"Select:")
-    = f.text_field (:select)        
-    = f.select(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
+    = label_tag(:select,"Select:")
+    = select_tag(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
+    
+     - @orderItem = OrderItem.find_by(order_id:session[:order_id])   
+    
+      -@orderItem.each do |items| 
+        - @total+= items.subtotal
+        p = items.product.name + "     "+ items.product.price
+       
+    
+    p = current_order.subtotal 
+    p = @pst
+    p = @gst
+    p = @hst 
+    h4 = current_order.subtotal + @pst + @gst + @hst
+    
     div.input-group-btn
-    = f.hidden_field :product_id, value: product_row.id
-    = f.submit "register", class: "btn btn-primary"
+      button.btn.btn-outline-success= submit_tag("Pay now ")
+      
+      

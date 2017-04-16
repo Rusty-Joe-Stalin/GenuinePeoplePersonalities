@@ -8,14 +8,14 @@ html
     link_to = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   body[style="background-color: #f7f7f7;"]
-  div[style="background-color: #e3f2fd;"]
-    h1.col.push-md-3 Genuine People Personalities 
+  div
+    h1.col.push-md-4 Genuine People Personalities 
   div.container-fluid
     nav.navbar.navbar-light
         h4.row.cart-text
           = render 'layouts/cart_text'
           - @cat = Category.all
-        div.row.col.push-md-7   
+        div.row.col.push-md-9   
           = form_tag("/showcases/results",method: "get") do
             = label_tag(:search,"Search for:")
             = text_field_tag(:search)
@@ -27,12 +27,15 @@ html
           li.nav-link =link_to " About us " , about_path
   
   div.row.col-10
-    - if flash[:notice]
+     - if flash[:notice]
       .alert.alert-success.alert-dismissible.fade.show[role="alert"] 
         button.close[type="button" data-dismiss="alert" aria-label="Close"] 
           span[aria-hidden="true"]
             | ×
         = flash[:notice]
+  .col 
+    =link_to "sign in", customer_index_path
+    / =link_to "register", customer_create_path
 
   div     
     == yield

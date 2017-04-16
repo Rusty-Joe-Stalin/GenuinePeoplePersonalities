@@ -1,6 +1,12 @@
 .card-deck-wrapper
   .card-deck
-    div.shopping-cart = render 'cart/shopping_cart'
-
+    .row.col.shopping-cart = render 'cart/shopping_cart'
 - unless @order_items.size == 0
-    = button_to 'Proceed to checkout', checkout_path 
+- @prov = Province.all 
+div.input-group  
+  = form_tag(email_field :email, class: "form-control", min: 1) do 
+  = label_tag(:email, "Email")
+  = text_field_tag(:email)
+  = label_tag(:select,"Select:")
+  = select_tag(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
+  = button_to 'Proceed to checkout', checkout_path
