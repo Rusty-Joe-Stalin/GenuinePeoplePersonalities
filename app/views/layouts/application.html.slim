@@ -15,8 +15,8 @@ html
         h4.row.cart-text
           = render 'layouts/cart_text'
           - @cat = Category.all
-        div.row.col.push-md-9   
-          = form_tag("/showcases/results",method: "get") do
+        div.row.col.push-md-3   
+          .btn-outline-success= form_tag("/showcases/results",method: "get") do
             = label_tag(:search,"Search for:")
             = text_field_tag(:search)
             = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
@@ -34,7 +34,7 @@ html
             | ×
         = flash[:notice]
   .col 
-    =link_to "sign in", customer_index_path
+    / =link_to "sign in", customer_index_path
     / =link_to "register", customer_create_path
 
   div     

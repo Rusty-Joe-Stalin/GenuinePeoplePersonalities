@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'customer/index'
-
-  get 'customer/show'
+  # get 'customer/index'
+  #
+  post 'customer/create'
 
   get 'charges/new'
 
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :order_items,only:[:create, :update , :destroy]
+
+  resources :customer,only:[:create]
 
   resources :cart, only:[:show]
 

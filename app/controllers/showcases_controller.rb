@@ -1,8 +1,7 @@
 class ShowcasesController < ApplicationController
-  # before_action :initliaze_session
+
   def index
     @products = Product.all.order(name: :asc).page(params[:page]).per(4)
-
     @order_item = current_order.order_items.new
   end
 
@@ -21,16 +20,19 @@ class ShowcasesController < ApplicationController
   def results
     @search_params = params[:search]
     @category_params = params[:category]
-  if  @category_params.present?
-    @result = Product.where('name LIKE ? AND category_id = ?', '%' + @search_params + '%', @category_params).order(name: :asc)
-  elsif @search_params == nil
-    @result = Category.find(@category_params).products
-  else
-    @result = Product.where('name LIKE ?', '%' + @search_params + '%')
+    if  @category_params.present?
+      @result = Product.where('name LIKE ? AND category_id = ?', '%' + @search_params + '%', @category_params).order(name: :asc)
+    elsif @search_params == nil
+      @result = Category.find(@category_params).products
+    else
+      @result = Product.where('name LIKE ?', '%' + @search_params + '%')
+    end
   end
-end
 
   def checkout
+    @customer = Customer.new
+
+
     @prov = Province.find(params[:provinces])
     @hst = (1 + @prov.hst) * current_order.subtotal
     @pst = (1 + @prov.pst) * current_order.subtotal

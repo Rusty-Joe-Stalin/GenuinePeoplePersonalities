@@ -1,18 +1,11 @@
 
-    div.input-group  
-    = form_tag(email_field :email, class: "form-control", min: 1) do 
-    = label_tag(:email, "Email") 
-    - @prov = Province.all    
-    = label_tag(:select,"Select:")
-    = select_tag(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
+- @orderItem = OrderItem.find_by(order_id:session[:order_id])   
     
-     - @orderItem = OrderItem.find_by(order_id:session[:order_id])   
-    
-      -@orderItem.each do |items| 
-        - @total+= items.subtotal
-        p = items.product.name + "     "+ items.product.price
+- @orderItem.each do |items| 
+  - @total+= items.subtotal
+  p.row = items.product.name + "     "+ items.product.price
        
-    
+  
     p = current_order.subtotal 
     p = @pst
     p = @gst

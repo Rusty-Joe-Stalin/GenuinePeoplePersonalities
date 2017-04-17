@@ -1,12 +1,13 @@
 .card-deck-wrapper
   .card-deck
     .row.col.shopping-cart = render 'cart/shopping_cart'
+
 - unless @order_items.size == 0
-- @prov = Province.all 
-div.input-group  
-  = form_tag(email_field :email, class: "form-control", min: 1) do 
-  = label_tag(:email, "Email")
-  = text_field_tag(:email)
-  = label_tag(:select,"Select:")
-  = select_tag(:provinces,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select')
-  = button_to 'Proceed to checkout', checkout_path
+    -@customer = Customer.new
+    = form_for @customer, url: {action: "create",:controller=>"customer"}  do |f|
+      = f.label :email, "Email"
+      = f.text_field :email 
+      = f.label :select,"Select:"
+      - @prov = Province.all
+      = f.select :province,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select'
+      = button_to "Procced" ,checkout_path, method: :post,class: "btn btn-primary"

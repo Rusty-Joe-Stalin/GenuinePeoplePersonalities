@@ -3,7 +3,11 @@ class CustomerController < ApplicationController
   end
 
   def create
-    @new_customer = Customer.new
+    @customer = Customer.new
+    # @customer.email = :email
+    # @customer.province_id = :province.to_i
+    @customer.save
+    # redirect_to checkout_path
   end
 
   def show
