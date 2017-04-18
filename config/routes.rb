@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # get 'customer/index'
   #
-  post 'customer/create'
+  # post 'customer/create'
 
-  get 'charges/new'
+  post 'charges/new'
 
   get 'charges/create'
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # get 'showcases/cart', to: 'showcases#cart' , as: 'cart'
   # removed the id from results.
-  post 'showcases/checkout', to:'showcases#checkout', as: 'checkout'
+   post 'cart/checkout' #, to:'cart#checkout'
 
   # post 'cart/show' =>'cart#show'
 

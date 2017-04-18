@@ -1,0 +1,25 @@
+h3 = "current order"
+
+- @orderItems = OrderItem.where("order_id = ?", session[:order_id])
+div.col.align-items-center.push-md-2    
+  - @orderItems.each do |items|  
+      p.row = items.product.name + "......................" + items.product.price.to_s
+
+  
+  h3 ="sub total......................" + number_to_currency(current_order.subtotal).to_s
+  -unless @pst == 0
+    h3 ="pst..........................." + number_to_currency(@pst).to_s 
+  -unless @gst == 0
+    h3 ="gst..........................." + number_to_currency(@gst).to_s
+  -unless @hst == 0
+    h3 ="hst..........................." + number_to_currency(@hst).to_s
+  
+  strong="total......................" + number_to_currency(current_order.subtotal + @pst + @gst + @hst).to_s
+  -@total = current_order.subtotal + @pst + @gst + @hst
+  -@taxes = @pst + @gst + @hst
+  
+div.input-group-btn
+  = form_for charges_new_path, url: {:action=>"new", :controller=>"charges"}, remote: true do |f|  
+    = f.hidden_field :total, value: @total
+    = f.hidden_field :tax, value: @taxes
+    = f.submit "Pay now",class: "btn btn-primary"

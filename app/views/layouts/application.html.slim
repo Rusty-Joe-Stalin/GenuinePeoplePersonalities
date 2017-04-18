@@ -10,18 +10,18 @@ html
   body[style="background-color: #f7f7f7;"]
   div
     h1.col.push-md-4 Genuine People Personalities 
-  div.container-fluid
+  .container-fluid
     nav.navbar.navbar-light
         h4.row.cart-text
           = render 'layouts/cart_text'
           - @cat = Category.all
-        div.row.col.push-md-3   
-          .btn-outline-success= form_tag("/showcases/results",method: "get") do
+        div.row.col.push-md-6   
+          = form_tag("/showcases/results",method: "get") do
             = label_tag(:search,"Search for:")
             = text_field_tag(:search)
             = select_tag(:category,options_from_collection_for_select(@cat,'id','name'), :include_blank => 'All Categories')
-            button.btn.btn-outline-success= submit_tag("Search")          
-    div.row.align-items-center          
+            = submit_tag("Search")          
+    .row.col.push-md-1          
         ul.navbar-nav
           li.nav-link =link_to " Home ", root_path 
           li.nav-link =link_to " About us " , about_path

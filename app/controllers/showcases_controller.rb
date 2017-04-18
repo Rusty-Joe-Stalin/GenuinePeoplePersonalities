@@ -28,14 +28,4 @@ class ShowcasesController < ApplicationController
       @result = Product.where('name LIKE ?', '%' + @search_params + '%')
     end
   end
-
-  def checkout
-    @customer = Customer.new
-
-
-    @prov = Province.find(params[:provinces])
-    @hst = (1 + @prov.hst) * current_order.subtotal
-    @pst = (1 + @prov.pst) * current_order.subtotal
-    @gst = (1 + @prov.gst) * current_order.subtotal
-  end
 end

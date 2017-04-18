@@ -1,13 +1,14 @@
 .card-deck-wrapper
   .card-deck
-    .row.col.shopping-cart = render 'cart/shopping_cart'
+    .row.col.push-md-1.shopping-cart = render 'cart/shopping_cart'
 
 - unless @order_items.size == 0
     -@customer = Customer.new
-    = form_for @customer, url: {action: "create",:controller=>"customer"}  do |f|
-      = f.label :email, "Email"
-      = f.text_field :email 
-      = f.label :select,"Select:"
-      - @prov = Province.all
-      = f.select :province,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select'
-      = button_to "Procced" ,checkout_path, method: :post,class: "btn btn-primary"
+    .row.footer
+      .col.shopping-cart= form_for @customer, url: {:action=>"checkout", :controller=>"cart"}  do |f|
+        = f.label :email, "Email"
+        = f.text_field :email 
+        = f.label :select,"Select:"
+        - @prov = Province.all
+        = f.select :province_id ,options_from_collection_for_select(@prov,'id','name'), :include_blank => 'Select'
+        = f.submit "Procced" ,class: "btn btn-primary"

@@ -1,7 +1,7 @@
 .product_row
   .well
     div.row
-      div.col-10.col-xl-10
+      div.col-12.col-xl-12
         .card-block[style="border 1px"]
           h4.col.card-title
             = product_row.name
@@ -16,10 +16,9 @@
               | Unit Price: 
               span[style="color: green"]
                 = number_to_currency product_row.price
-              button.btn = link_to 'Details',showcase_path(product_row)
-              
+              button.btn = link_to 'Details',showcase_path(product_row)              
               div.input-group
               = f.number_field :quantity, value: 1, class: "form-control", min: 1
-              div.input-group-btn
               = f.hidden_field :product_id, value: product_row.id
+              div.input-group-btn              
               = f.submit "Add to Cart", class: "btn btn-primary"
